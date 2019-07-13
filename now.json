@@ -1,0 +1,50 @@
+{
+  "version": 2,
+  "name": "<%= name %>",
+  "alias": ["<%= alias %>"],
+  "builds": [
+    { "src": "api/build.js", "use": "@now/node" },
+    {
+      "src": "api/**/*.js",
+      "use": "@now/node",
+      "config": {
+        "maxLambdaSize": "15mb"
+      }
+    },
+    {
+      "src": "api/**/*.html",
+      "use": "@now/static"
+    },
+    {
+      "src": "api/**/*.txt",
+      "use": "@now/static"
+    },
+    {
+      "src": "web/**/*.html",
+      "use": "@now/static"
+    },
+    {
+      "src": "web/**/*.txt",
+      "use": "@now/static"
+    },
+    {
+      "src": "web/next.config.js",
+      "use": "@now/next",
+      "config": {
+        "maxLambdaSize": "<%= now_max_lambda_size %>"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "^/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "^/(.*)",
+      "dest": "/web/$1"
+    }
+  ],
+  "env": {
+  }
+}

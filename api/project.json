@@ -1,0 +1,8 @@
+{
+  "name": "app.storeos.command",
+  "alias": "app.storeos.command",
+  "domain": "storeos.app",
+  "subdomain": "app.storeos.command",
+  "github_user": "maestro-js",
+  "description": "./app.storeos.command"
+}
